@@ -98,7 +98,7 @@ body::before {
 }
 
 .nav-link {
-  color: #4a5568;
+  color: #1a202c;
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
@@ -161,7 +161,7 @@ body::before {
   font-weight: 400;
   margin-bottom: 1rem;
   line-height: 1.1;
-  color: #1a202c;
+  color: #1E3A8A;
   letter-spacing: 1px;
 }
 
@@ -170,7 +170,7 @@ body::before {
   font-size: 1.3rem;
   font-weight: 300;
   margin-bottom: 2rem;
-  color: #4a5568;
+  color: #1a202c;
   line-height: 1.5;
   letter-spacing: 0.5px;
 }
@@ -210,8 +210,8 @@ body::before {
 
 .btn-secondary {
   background: transparent;
-  color: #1a202c;
-  border: 1px solid #e2e8f0;
+  color: #1E3A8A;
+  border: 1px solid #1E3A8A;
 }
 
 .btn-secondary:hover {
@@ -279,7 +279,7 @@ body::before {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.5rem;
   font-weight: 400;
-  color: #1a202c;
+  color: #1E3A8A;
   margin-bottom: 0.5rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -288,7 +288,7 @@ body::before {
 .section-subtitle {
   font-family: 'Permanent Marker', cursive;
   font-size: 1.1rem;
-  color: #4a5568;
+  color: #1a202c;
   margin-bottom: 2rem;
   letter-spacing: 0.5px;
 }
