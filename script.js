@@ -111,16 +111,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Ativar navbar ao scroll
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 100) {
-    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-  } else {
-    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-  }
-});
-
 // Efeito de foco nos inputs do formulário
 const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
 inputs.forEach(input => {
