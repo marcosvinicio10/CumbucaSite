@@ -5,13 +5,39 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navMenu.classList.toggle('active');
+  
+  // Prevenir scroll do body quando menu está aberto
+  if (navMenu.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 });
 
 // Fechar menu ao clicar em um link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
   hamburger.classList.remove('active');
   navMenu.classList.remove('active');
+  document.body.style.overflow = '';
 }));
+
+// Fechar menu ao clicar fora dele
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+// Fechar menu ao redimensionar a tela
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
 
 // Scroll suave para navegação
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -114,4 +140,53 @@ window.addEventListener('mousemove', e => {
     const y = (e.clientY / window.innerHeight - 0.5) * 30;
     heroBg.style.transform = `translate(${x}px, ${y}px)`;
   }
-}); 
+});
+
+// Melhorias para mobile - touch gestures
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', e => {
+  touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', e => {
+  touchEndY = e.changedTouches[0].screenY;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const diff = touchStartY - touchEndY;
+  
+  // Swipe para cima - fechar menu se estiver aberto
+  if (diff > swipeThreshold && navMenu.classList.contains('active')) {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Melhorar performance em mobile
+let ticking = false;
+
+function updateParallax() {
+  if (heroBg) {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.3;
+    heroBg.style.transform = `translateY(${rate}px)`;
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+});
+
+// Adicionar classe para dispositivos touch
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  document.body.classList.add('touch-device');
+} 
