@@ -53,27 +53,125 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Animação de entrada para elementos
+// Animação de entrada aprimorada para elementos
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  threshold: 0.2,
+  rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      // Adicionar classe para ativar animação
+      entry.target.classList.add('animate-visible');
+      
+      // Remover observer após animação
+      setTimeout(() => {
+        animationObserver.unobserve(entry.target);
+      }, 1000);
     }
   });
 }, observerOptions);
 
-// Observar elementos para animação
-document.querySelectorAll('.project-card, .service-card, .team-member, .value-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
+// Função para adicionar animações baseadas na posição
+function addScrollAnimations() {
+  // Elementos que vêm da esquerda
+  const leftElements = document.querySelectorAll('.value-item:nth-child(odd), .project-card:nth-child(odd), .service-card:nth-child(odd), .team-member:nth-child(odd), .tech-card:nth-child(odd)');
+  
+  // Elementos que vêm da direita
+  const rightElements = document.querySelectorAll('.value-item:nth-child(even), .project-card:nth-child(even), .service-card:nth-child(even), .team-member:nth-child(even), .tech-card:nth-child(even)');
+  
+  // Elementos que vêm de baixo
+  const bottomElements = document.querySelectorAll('.section-header, .carousel-container');
+  
+  // Elementos que vêm de cima
+  const topElements = document.querySelectorAll('.about-content, .contact-info');
+  
+  // Elementos que fazem fade in com scale
+  const fadeScaleElements = document.querySelectorAll('.hero-logo, .contact-form');
+  
+  // Configurar estados iniciais e observers
+  leftElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-100px)';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    animationObserver.observe(el);
+  });
+  
+  rightElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(100px)';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    animationObserver.observe(el);
+  });
+  
+  bottomElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(100px)';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    animationObserver.observe(el);
+  });
+  
+  topElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-100px)';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    animationObserver.observe(el);
+  });
+  
+  fadeScaleElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'scale(0.8)';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    animationObserver.observe(el);
+  });
+}
+
+// Função para ativar animações quando elementos entram na viewport
+function activateAnimations() {
+  const animatedElements = document.querySelectorAll('.animate-visible');
+  
+  animatedElements.forEach(el => {
+    // Determinar direção da animação baseada na classe ou posição
+    if (el.classList.contains('value-item') || el.classList.contains('project-card') || 
+        el.classList.contains('service-card') || el.classList.contains('team-member') || 
+        el.classList.contains('tech-card')) {
+      
+      const isOdd = Array.from(el.parentNode.children).indexOf(el) % 2 === 0;
+      
+      if (isOdd) {
+        // Animação da esquerda
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+      } else {
+        // Animação da direita
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+      }
+    } else if (el.classList.contains('section-header') || el.classList.contains('carousel-container')) {
+      // Animação de baixo
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    } else if (el.classList.contains('about-content') || el.classList.contains('contact-info')) {
+      // Animação de cima
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    } else if (el.classList.contains('hero-logo') || el.classList.contains('contact-form')) {
+      // Animação fade in com scale
+      el.style.opacity = '1';
+      el.style.transform = 'scale(1)';
+    }
+  });
+}
+
+// Inicializar animações quando DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+  addScrollAnimations();
+  
+  // Ativar animações após um pequeno delay
+  setTimeout(() => {
+    activateAnimations();
+  }, 100);
 });
 
 // Formulário de contato
