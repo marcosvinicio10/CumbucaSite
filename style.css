@@ -19,7 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Efeito de fundo animado */
 body::before {
   content: '';
   position: fixed;
@@ -27,72 +26,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(135, 206, 235, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(70, 130, 180, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(30, 58, 138, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 60% 60%, rgba(100, 149, 237, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    50px 50px,
-    30px 30px,
-    20px 20px;
-  animation: backgroundShift 20s ease-in-out infinite;
+  background: linear-gradient(135deg, #87CEEB 0%, #4682B4 50%, #1E3A8A 100%);
   z-index: -1;
-}
-
-/* Melhorias para dispositivos touch */
-.touch-device .btn {
-  min-height: 44px; /* Tamanho mínimo para touch */
-}
-
-.touch-device .nav-link {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.touch-device .hamburger {
-  min-height: 44px;
-  min-width: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.touch-device .form-group input,
-.touch-device .form-group textarea {
-  min-height: 44px;
-  font-size: 16px; /* Evita zoom no iOS */
-}
-
-/* Melhorar feedback visual para touch */
-.touch-device .btn:active,
-.touch-device .nav-link:active,
-.touch-device .project-card:active,
-.touch-device .service-card:active,
-.touch-device .team-member:active {
-  transform: scale(0.98);
-  transition: transform 0.1s ease;
-}
-
-@keyframes backgroundShift {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(-30px, -30px) scale(1.1);
-  }
-  66% {
-    transform: translate(30px, 30px) scale(0.9);
-  }
 }
 
 .container {
@@ -101,7 +36,6 @@ body::before {
   padding: 0 20px;
 }
 
-/* Navbar com design exato do site de referência */
 .navbar {
   position: fixed;
   top: 0;
@@ -113,8 +47,7 @@ body::before {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
+  box-shadow: 4px 4px 6px 0 rgba(116, 125, 136, .2),
     inset 4px 4px 6px 0 rgba(255,255,255,.15),
     inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   z-index: 1000;
@@ -122,63 +55,6 @@ body::before {
   overflow: hidden;
   min-width: 200px;
   isolation: isolate;
-}
-
-.navbar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Fallback para navegadores sem suporte a backdrop-filter */
-@supports not (backdrop-filter: blur(30px)) {
-  .navbar {
-    background: rgba(255, 255, 255, 0.25);
-  }
-  
-  .nav-menu {
-    background-color: rgba(255, 255, 255, 0.25);
-  }
-}
-
-.navbar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 1;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: 100%;
-  }
 }
 
 .nav-container {
@@ -198,12 +74,10 @@ body::before {
   color: #1E3A8A;
   text-decoration: none;
   letter-spacing: 0.5px;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .nav-logo a:hover {
-  color: #4682B4;
   text-shadow: 0 2px 8px rgba(70, 130, 180, 0.3);
 }
 
@@ -224,26 +98,21 @@ body::before {
 }
 
 .nav-link {
-  color: #1E3A8A;
+  color: #4a5568;
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1rem;
   padding: 0.75rem 1.25rem;
   transition: all 0.2s ease;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.nav-link:hover {
-  color: #4682B4;
-  transform: translateY(-1px);
-}
-
+.nav-link:hover,
 .nav-link.active {
-  color: #4682B4;
+  color: #1a202c;
 }
 
 .nav-link i {
@@ -255,8 +124,6 @@ body::before {
   flex-direction: column;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 1001;
-  transition: all 0.3s ease;
 }
 
 .bar {
@@ -268,43 +135,12 @@ body::before {
   border-radius: 1px;
 }
 
-/* Animação do hamburger quando ativo */
-.hamburger.active .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Hero Section com glass effect */
 .hero {
   padding: 120px 0 80px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 20px;
-  margin: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(70, 130, 180, 0.15);
-  z-index: 1;
 }
 
 .hero-container {
@@ -317,8 +153,6 @@ body::before {
   align-items: center;
   position: relative;
   z-index: 3;
-  opacity: 0;
-  animation: slideInFromLeft 1s ease-out 0.3s forwards;
 }
 
 .hero-title {
@@ -336,7 +170,7 @@ body::before {
   font-size: 1.3rem;
   font-weight: 300;
   margin-bottom: 2rem;
-  color: #1E293B;
+  color: #4a5568;
   line-height: 1.5;
   letter-spacing: 0.5px;
 }
@@ -363,31 +197,27 @@ body::before {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #4682B4 0%, #1E3A8A 100%);
+  background: #1a202c;
   color: white;
-  border: 1px solid #4682B4;
-  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.3);
+  border: 1px solid #1a202c;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+  background: #2d3748;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(70, 130, 180, 0.5);
+  box-shadow: 0 8px 25px rgba(26, 32, 44, 0.2);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.3);
-  color: #1E3A8A;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
+  color: #1a202c;
+  border: 1px solid #e2e8f0;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.7);
+  background: #f7fafc;
+  border-color: #cbd5e0;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
 .btn i {
@@ -414,8 +244,6 @@ body::before {
   align-items: center;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  animation: slideInFromRight 1s ease-out 0.5s forwards;
 }
 
 .hero-logo {
@@ -425,8 +253,6 @@ body::before {
   border-radius: 50%;
   transition: transform 0.3s ease;
   z-index: 2;
-  opacity: 0;
-  animation: fadeInScale 1s ease-out 0.7s forwards;
 }
 
 .hero-logo:hover {
@@ -442,34 +268,28 @@ body::before {
   }
 }
 
-/* Section Headers */
 .section-header {
   text-align: center;
   margin-bottom: 4rem;
   position: relative;
   z-index: 3;
-  opacity: 0;
-  animation: slideInFromTop 0.8s ease-out forwards;
 }
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 400;
   color: #1a202c;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .section-subtitle {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: #1E293B;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.5;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
   letter-spacing: 0.5px;
 }
 
@@ -486,14 +306,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
@@ -650,14 +466,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
@@ -819,14 +631,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
@@ -962,14 +770,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
@@ -1110,14 +914,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
@@ -1255,14 +1055,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
@@ -2150,14 +1946,10 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    4px 4px 6px 0 rgba(116, 125, 136, .2),
-    inset 4px 4px 6px 0 rgba(255,255,255,.15),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   z-index: 1;
   isolation: isolate;
