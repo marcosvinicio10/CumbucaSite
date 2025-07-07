@@ -478,13 +478,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(255, 140, 0, 0.15);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .about-content {
@@ -614,13 +638,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(70, 130, 180, 0.15);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.projects::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .projects-grid {
@@ -757,12 +805,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(128, 128, 128, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.services::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .services-grid {
@@ -873,12 +946,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(128, 128, 128, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.team::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .team-grid {
@@ -994,12 +1092,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(128, 128, 128, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.contact::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .contact-content {
@@ -1110,12 +1233,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(128, 128, 128, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.supporters::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .carousel-container {
@@ -1978,12 +2126,37 @@ body::before {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgba(128, 128, 128, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    4px 4px 6px 0 rgba(116, 125, 136, .2),
+    inset 4px 4px 6px 0 rgba(255,255,255,.15),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
   z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.technologies::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .technologies-grid {
